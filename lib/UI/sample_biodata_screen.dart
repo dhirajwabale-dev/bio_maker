@@ -1,8 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../Responsive UI/responsive_ui.dart';
 import '../Utility/app_color.dart';
+import '../Utility/common_code.dart';
 import '../Widget/general_safe_area.dart';
 
 class SampleScreen extends StatelessWidget {
@@ -23,7 +26,28 @@ class SampleScreen extends StatelessWidget {
           ),
         ),
 
-        body: Column(),
+        body: Column(
+          children: [
+            Expanded(
+              child: CarouselSlider(
+                items: sampleData.map((item) {
+                  return Container(
+                    padding: EdgeInsets.all(10.r),
+                    height: Get.height,
+                    width: Get.width,
+                    child: Image.asset(item, fit: BoxFit.fill),
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  height: Get.height,
+                  viewportFraction: 1,
+                  autoPlay: true,
+                  reverse: true,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

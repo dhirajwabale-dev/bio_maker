@@ -10,4 +10,8 @@ class AssetsImage {
   static const String a4Img = 'assets/images/a4_page.jpg';
 
   static const String devnagari = 'assets/fonts/NotoSansDevanagari-Regular.ttf';
+
+  static const String sample1 = 'assets/images/sample1.png';
+
+  static const String sample2 = 'assets/images/sample2.png';
 }

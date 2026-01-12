@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'app_color.dart';
+import 'assets_image.dart';
 
 Widget buildCommonText(
   String text, {
@@ -32,6 +33,8 @@ void buildCommonDialog(String msg) {
     },
   );
 }
+
+List<String> sampleData = [AssetsImage.sample1, AssetsImage.sample2];
 
 //List Of Rashi in Marathi
 List<String> rashiListInMarathi = [
