@@ -13,6 +13,8 @@ class SampleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = ResponsiveUi.isDesktop(context);
+
     return GeneralSafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -34,7 +36,7 @@ class SampleScreen extends StatelessWidget {
                   return Container(
                     padding: EdgeInsets.all(10.r),
                     height: Get.height,
-                    width: Get.width,
+                    width: isDesktop ? Get.width / 1.6 : Get.width,
                     child: Image.asset(item, fit: BoxFit.fill),
                   );
                 }).toList(),
