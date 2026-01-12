@@ -11,8 +11,10 @@ import 'package:path_provider/path_provider.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../Routes/routes_name.dart';
 import '../Services/bio_image.dart';
 import '../Services/create_pdf.dart';
+import '../Utility/common_code.dart';
 import '../Utility/logger.dart';
 
 class BiodataCreateController extends GetxController {
@@ -67,7 +69,7 @@ class BiodataCreateController extends GetxController {
     );
 
     if (pickedDate != null) {
-      birthDateController.text = DateFormat("dd-MMM-yyyy").format(pickedDate);
+      birthDateController.text = DateFormat("dd MMM yyyy").format(pickedDate);
     }
   }
 
@@ -203,5 +205,171 @@ class BiodataCreateController extends GetxController {
     apekshaController.clear();
     addressController.clear();
     mobileController.clear();
+  }
+
+  void clickONCheckBtn() {
+    final isLangFlag = langSelectionflag.value == 0;
+    //Name Error
+    if (fullNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया पूर्ण नाव टाकावे' : 'Please enter full name',
+      );
+      return;
+    }
+
+    //Date of Birth Error
+    if (birthDateController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया जन्म तारीख टाकवी' : 'Please select date of birth',
+      );
+      return;
+    }
+
+    //Birth time  Error
+    if (birthTimeController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया जन्म वेळ टाकावे' : 'Please enter birth Time',
+      );
+      return;
+    }
+
+    //Caste Error
+    if (casteController.text.isEmpty) {
+      buildCommonDialog(isLangFlag ? 'कृपया जात टाकावी' : 'Please enter caste');
+      return;
+    }
+
+    //Devak Error
+    if (devakController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया देवक टाकावी' : 'Please enter devak',
+      );
+      return;
+    }
+
+    //Birth Place Error
+    if (birthPlaceController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया जन्म स्थान टाकावे' : 'Please enter birth place',
+      );
+      return;
+    }
+
+    //Rashi Error
+    if (selectedRashi.value.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया राशी चुनें' : 'Please select rashi',
+      );
+      return;
+    }
+
+    //varn Error
+    if (selectedVarn.value.isEmpty) {
+      buildCommonDialog(isLangFlag ? 'कृपया वर्ण चुनें' : 'Please select varn');
+      return;
+    }
+
+    //Education Error
+    if (educationController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag
+            ? 'कृपया शिक्षण तपशील टाकावे'
+            : 'Please enter education details',
+      );
+
+      return;
+    }
+
+    //Income Error
+    if (incomeController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया पगार तपशील टाकावे' : 'Please enter income details',
+      );
+      return;
+    }
+
+    //job Error
+    if (jobController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया नोकरी तपशील टाकावे' : 'Please enter job details',
+      );
+      return;
+    }
+
+    //father Name Error
+    if (fatherNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया वडीलाचे नाव टाकावे' : 'Please enter father name',
+      );
+      return;
+    }
+
+    //Mother Name Error
+    if (motherNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया आईचे नाव टाकावे' : 'Please enter mother name',
+      );
+      return;
+    }
+
+    //bahin Name Error
+    if (sisterNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया बहिणीचे नाव टाकावे' : 'Please enter sister name',
+      );
+      return;
+    }
+
+    //Brother Name Error
+    if (brotherNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया भाऊचे नाव टाकावे' : 'Please enter brother name',
+      );
+      return;
+    }
+
+    //mama Name Error
+    if (mamaNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया मामाचे नाव टाकावे' : 'Please enter mama name',
+      );
+      return;
+    }
+
+    //nate Name Error
+    if (nateNameController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया नातेसंबंध टाकावे' : 'Please enter relative sirname',
+      );
+      return;
+    }
+
+    //apeksha Error
+    if (apekshaController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag
+            ? 'कृपया आपेक्षा तपशील टाकावे'
+            : 'Please enter apeksha details',
+      );
+      return;
+    }
+
+    //address Error
+    if (addressController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया पत्ता टाकावा' : 'Please enter address details',
+      );
+      return;
+    }
+
+    //mobile Error
+    if (mobileController.text.isEmpty) {
+      buildCommonDialog(
+        isLangFlag ? 'कृपया मोबाइल नंबर टाकावा' : 'Please enter mobile number',
+      );
+      return;
+    }
+
+    Get.toNamed(RoutesName.previewScreen);
   }
 }

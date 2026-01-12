@@ -317,15 +317,14 @@ class CreateBiodataScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Expanded(
-                                child: ElevatedButton.icon(
-                                  onPressed: () =>
-                                      controller.createBiodataImg(langFlag),
-                                  label: Text(
+                                child: ElevatedButton(
+                                  onPressed: () => controller.clickONCheckBtn(),
+
+                                  child: Text(
                                     langFlag == 0
-                                        ? "बायोडाटा तयार करा"
-                                        : "Create Biodata",
+                                        ? "परत चेक करा"
+                                        : "Preview Biodata",
                                   ),
-                                  icon: const Icon(Icons.download),
                                 ),
                               ),
                             ],
@@ -337,7 +336,11 @@ class CreateBiodataScreen extends StatelessWidget {
                 ),
 
                 //Loader Widget
-                if (controller.isLoading.value) ProgressIndicatorWidget(),
+                Obx(() {
+                  return controller.isLoading.value
+                      ? ProgressIndicatorWidget()
+                      : Container();
+                }),
               ],
             );
           }),

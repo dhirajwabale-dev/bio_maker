@@ -246,7 +246,10 @@ class HomeScreen extends StatelessWidget {
             child: const Text('Create Biodata'),
           ),
           SizedBox(width: 16.w),
-          OutlinedButton(onPressed: () {}, child: const Text('View Samples')),
+          OutlinedButton(
+            onPressed: () => Get.toNamed(RoutesName.sampleScreen),
+            child: const Text('View Samples'),
+          ),
         ],
       ),
     );

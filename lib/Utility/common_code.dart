@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import 'app_color.dart';
 
@@ -18,6 +19,17 @@ Widget buildCommonText(
       fontSize: fontSize ?? 14.sp,
       fontWeight: fontWeight ?? FontWeight.normal,
     ),
+  );
+}
+
+void buildCommonDialog(String msg) {
+  Get.defaultDialog(
+    title: 'Alert',
+    middleText: msg,
+    textConfirm: 'OK',
+    onConfirm: () {
+      Get.back();
+    },
   );
 }
 

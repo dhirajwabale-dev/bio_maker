@@ -16,4 +16,6 @@ class RoutesName {
   static const String termAndConditionScreen = '/term-and-condition';
 
   static const String sampleScreen = '/sample-bio';
+
+  static const String previewScreen = '/preview-screen';
 }
